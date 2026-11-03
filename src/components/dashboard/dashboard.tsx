@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Cover } from "@/components/cover/cover";
 import { RefreshButton } from "@/components/refreshButton/refreshButton";
 import { FeaturedArtist } from "@/components/sections/featuredArtist/featuredArtist";
@@ -128,22 +127,16 @@ export function Dashboard({ data }: DashboardProps) {
         <RecentlyPlayed id="recentes" tracks={data.recent} className={SIDE_COLUMN} />
       </div>
 
-      <footer className="flex flex-col gap-1.5 border-t border-border pt-5 text-xs text-text-dim md:flex-row md:flex-wrap md:items-center md:justify-between md:pt-6 md:text-[13px]">
-        <a
-          href="https://www.marcosumpierre.dev/"
-          className="inline-flex min-h-11 items-center self-start hover:opacity-80 md:self-auto"
-        >
-          <Image src="/marcos-logo.svg" alt="Portfólio de Marcos Umpierre" width={28} height={28} />
-        </a>
-        {repoUrl && (
+      {repoUrl && (
+        <footer className="flex flex-col gap-1.5 border-t border-border pt-5 text-xs text-text-dim md:flex-row md:flex-wrap md:items-center md:justify-between md:pt-6 md:text-[13px]">
           <a
             href={repoUrl}
             className="inline-flex min-h-11 items-center self-start text-lime hover:text-lime-hover md:self-auto"
           >
             Código no GitHub
           </a>
-        )}
-      </footer>
+        </footer>
+      )}
     </div>
   );
 }
